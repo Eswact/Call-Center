@@ -1,0 +1,134 @@
+﻿@using StajProje.Models.Entity
+@model List<Jobs>
+
+@{
+    ViewBag.Title = "Personal";
+    Layout = "~/Views/Shared/newLayout.cshtml";
+}
+
+<main>
+    <div>
+        <nav>
+            <div class="flex1">
+                <div>
+                    <span id="sf"><i class="fa-solid fa-paperclip"></i> Benim İşlerim </span>
+                </div>
+                <ol id="nv" class="flex">
+                    <li>
+                        <button class="sec2"><i class="fa-solid fa-eye"></i></button>
+                    </li>
+                    <li>
+                        <button class="sec5"><i class="fa-solid fa-xmark"></i> Sil</button>
+                    </li>
+                    <li>
+                        <button class="sec3"><i class="fa-solid fa-pen-to-square"></i> Düzenle/Göster</button>
+                    </li>
+                    <li>
+                        <button class="sec4"><i class="fa-solid fa-circle-plus"></i> Yeni Ekle</button>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+        <div id="formbar2">
+            <form class="flexc">
+                <div class="flex">
+                    <p class="formp">Başlangıç Tarihi : </p>
+                    <input class="form2" type="text" placeholder="GG/AA/YYYY" onfocus="(this.type='date')">
+                </div>
+                <div class="flex">
+                    <span id="dropd">
+                        Acil mi ? :
+                        <select id="dropdown2" class="form-drop">
+                            <option disabled selected value></option>
+                            <option value="Cari adres 1">Acil</option>
+                            <option value="Cari adres 2">Acil değil</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="flex">
+                    <span id="dropd">
+                        Filtre Tipi :
+                        <select id="dropdown2" class="form-drop">
+                            <option disabled selected value></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </span>
+                </div>
+            </form>
+            <form class="flexc">
+                <div class="flex">
+                    <p class="formp">Bitiş Tarihi : </p>
+                    <input class="form2" type="text" placeholder="GG/AA/YYYY" onfocus="(this.type='date')">
+                </div>
+                <div class="flex">
+                    <span id="dropdl">
+                        Kapalı mı ? :
+                        <select id="dropdown2" class="form-drop">
+                            <option disabled selected value></option>
+                            <option value="1">Açık</option>
+                            <option value="2">Kapalı</option>
+                        </select>
+                    </span>
+                </div>
+                <div class="flex">
+                    <p class="formp">Filtre : </p>
+                    <input class="form2" type="text" placeholder="Filtre">
+                </div>
+            </form>
+            <button class="ara"><i class="fa-solid fa-magnifying-glass spc2"></i> Ara</button>
+        </div>
+    </div>
+    <div class="tablepad">
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Çağrı</th>
+                    <th>Müşteri</th>
+                    <th>Ekleyen Personel</th>
+                    <th>Grup</th>
+                    <th>Teknisyen</th>
+                    <th>Kayıt Tarihi</th>
+                    <th>Acil Mi?</th>
+                    <th>Kapalı Mı?</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var jbs in Model)
+                {
+                    if (jbs.CariAdres == @HttpContext.Current.User.Identity.Name)
+                    {
+                        <tr>
+                            <td>@jbs.Cari</td>
+                            <td>@jbs.Musteri</td>
+                            <td>@jbs.CariAdres</td>
+                            <td>@jbs.Gruplar</td>
+                            <td>@jbs.Teknisyenler</td>
+                            <td>@jbs.KTarih</td>
+                            <td>@jbs.Acil</td>
+                            <td>@jbs.Kapali</td>
+                            <td><a href="/Default/SIL/@jbs.JobID" class="btn-delete"><i class="fa-solid fa-xmark"></i> Sil</a> <a href="/Default/GUNCELLE/@jbs.JobID" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Düzenle</a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Çağrı</th>
+                    <th>Müşteri</th>
+                    <th>Ekleyen Personel</th>
+                    <th>Grup</th>
+                    <th>Teknisyen</th>
+                    <th>Kayıt Tarihi</th>
+                    <th>Acil Mi?</th>
+                    <th>Kapalı Mı?</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>    
+    </div>
+</main>
+
+

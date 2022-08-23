@@ -1,0 +1,251 @@
+﻿/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+/* reset css */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--color-white);
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        background: var(--color-darkblue);
+        background-image: linear-gradient(115deg, rgba(238, 103, 31, 0.57), rgba(255, 225, 190, 0.27)), url(https://cdn.freecodecamp.org/testable-projects-fcc/images/survey-form-background.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+#logdiv {
+    width: 400px;
+    height: 600px;
+    margin: auto;
+    background-color: rgba(243, 242, 240, 0.65);
+    border: 2.5px solid #ee671fb0;
+}
+
+#imdiv {
+    width: 100%;
+    height: auto;
+}
+
+#img1 {
+    display: block;
+    margin: 7% auto 1.25% auto;
+    width: 40%;
+    height: 40%;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 3px solid #EE681F;
+    transition: transform 1s;
+}
+
+    #img1:hover {
+        transform: rotate(360deg) translateZ(0);
+    }
+
+form {
+    padding: 10%;
+}
+
+.logp {
+    font-size: larger;
+    padding: 10px 0px;
+    text-align: left;
+    margin: 10px 0px;
+}
+
+input {
+    font-size: large;
+    color: black;
+    margin: auto;
+    width: 95%;
+    padding: 2.5%;
+    border-color: #EE681F;
+}
+
+#loginbut {
+    display: block;
+    margin: 48px auto auto auto;
+    height: 50px;
+    width: 150px;
+    font-size: larger;
+    background-color: #ee671fec;
+    color: black;
+    border: 1.5px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 2px 2px #5825094b;
+    font-weight: 500;
+    transition: all 200ms ease-in-out;
+}
+
+    #loginbut:hover {
+        transform: scale(1.1) translateY(10px);
+    }
+
+#img2 {
+    width: 75px;
+    height: 75px;
+}
+
+.imdivi {
+    width: 75px;
+    height: 75px;
+    animation: show-profile 8s forwards ease-in-out;
+}
+
+@keyframes show-profile {
+    0% {
+        transform: translateX(-2000px) translateY(300px);
+    }
+
+    100% {
+        transform: translateX(555px) translateY(-1800px);
+    }
+}

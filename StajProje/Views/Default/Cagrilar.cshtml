@@ -1,0 +1,45 @@
+﻿@using StajProje.Models.Entity
+@model List<Calls>
+@{
+    ViewBag.Title = "Cagrilar";
+    Layout = "~/Views/Shared/newLayout.cshtml";
+}
+
+<div class="callist">
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Ad-Soyad</th>
+                <th>Numara</th>
+                <th>Mail</th>
+                <th>Durum</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cls in Model)
+            {
+                <tr>
+                    <td>@cls.CustomerName</td>
+                    <td>@cls.CallNumber</td>
+                    <td>@cls.CustomerMail</td>
+                    <td>@cls.CallStatus</td>
+                    <td><a href="/Default/SILC/@cls.CallID" class="btn-delete"><i class="fa-solid fa-xmark"></i> Sil</a> <a href="/Default/GUNCELLE/@cls.CallID" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Düzenle</a></td>
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Ad-Soyad</th>
+                <th>Numara</th>
+                <th>Mail</th>
+                <th>Durum</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div>
+    <button class="yeniadres"><i class="fa-solid fa-plus"></i> Yeni Müşteri Ekle</button>
+</div>

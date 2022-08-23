@@ -1,0 +1,42 @@
+﻿@using StajProje.Models.Entity
+@model List<Users>
+@{
+    ViewBag.Title = "Ayarlar";
+    Layout = "~/Views/Shared/newLayout.cshtml";
+}
+
+<div class="callist">
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Şifre</th>
+                <th>Rol</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ayr in Model)
+            {
+                <tr>
+                    <td>@ayr.Username</td>
+                    <td>@ayr.UserPassword</td>
+                    <td>@ayr.UserRole</td>
+                    <td><a href="/Default/SILAA/@ayr.UserID" class="btn-delete"><i class="fa-solid fa-xmark"></i> Sil</a> <a href="/Default/GUNCELLE/@ayr.UserID" class="btn-edit"><i class="fa-solid fa-pen-to-square"></i> Düzenle</a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>Şifre</th>
+                <th>Rol</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div>
+    <button class="yeniadres"><i class="fa-solid fa-plus"></i> Yeni Kullanıcı Ekle</button>
+</div>
+

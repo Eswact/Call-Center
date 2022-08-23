@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <title>Servis-Admin</title>
+</head>
+<body>
+    <main>
+        <div>
+            <nav>
+                <div class="flex1">
+                    <div> 
+                        <span id="sf"><i class="fa-solid fa-paperclip"></i> Servis Fişi </span> 
+                    </div>
+                    <ol id="nv" class="flex">
+                        <li>        
+                            <button class="sec" ><i class="fa-solid fa-bars"></i>  Alt kayıtlar özeti</button>    
+                        </li>
+                        <li>
+                            <button class="sec2"><i class="fa-solid fa-eye"></i></button>
+                        </li>
+                        <li>
+                            <button class="sec5"><i class="fa-solid fa-xmark"></i> Sil</button>   
+                        </li>
+                        <li>                                
+                            <button class="sec3"><i class="fa-solid fa-pen-to-square"></i> Düzenle/Göster</button>                            
+                        </li>
+                        <li>
+                            <button class="sec4"><i class="fa-solid fa-circle-plus"></i> Yeni Ekle</button>                                
+                        </li>
+                    </ol>
+                </div>
+            </nav>
+            <div id="formbar">
+                <form class="flexc">
+                    <div class="flex">
+                        <p class="formp">Başlangıç Tarihi : </p>
+                        <input class="form2" type="text" placeholder="Başlangıç tarihi" >
+                    </div>
+                    <div class="flex">
+                        <span id="dropd">
+                            Acil mi ? : 
+                            <select id="dropdown" class="form-drop" required>
+                                <option disabled selected value></option>
+                                <option value="Cari adres 1">Acil</option>
+                                <option value="Cari adres 2">Acil değil</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="flex">
+                        <span id="dropd">
+                            Filtre Tipi : 
+                            <select id="dropdown" class="form-drop" required>
+                                <option disabled selected value></option>  
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </span>
+                    </div>
+                </form>
+                <form class="flexc">
+                    <div class="flex">
+                        <p class="formp">Bitiş Tarihi : </p>
+                        <input class="form2" type="text" placeholder="Bitiş Tarihi" >
+                    </div>
+                    <div class="flex">
+                        <span id="dropdl">
+                            Kapalı mı ? : 
+                            <select id="dropdown" class="form-drop" required>
+                                <option disabled selected value></option>  
+                                <option value="1">Açık</option>
+                                <option value="2">Kapalı</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="flex">
+                        <p class="formp">Filtre : </p>
+                        <input class="form2" type="text" placeholder="Filtre">
+                    </div>
+                </form>
+                <button class="ara"><i class="fa-solid fa-magnifying-glass spc2"></i> Ara</button> 
+            </div>
+        </div>
+        <div class="tablepad">
+            <table>
+                <tr>
+                    <th>Cari</th>
+                    <th>Grup ismi</th>
+                    <th>Grup Kodu</th>
+                    <th>Teknisyen</th>
+                    <th>Fatura No</th>
+                    <th>Servis Form No</th>
+                    <th>Kayıt Tarihi</th>
+                    <th>Acil Mi?</th>
+                    <th>Kapalı Mı?</th>
+                </tr>
+                <tr>
+                    <td>nurefşan ayhan</td>
+                    <td>Satış</td>
+                    <td>satis</td>
+                    <td>Berkay Sönmez</td>
+                    <td></td>
+                    <td></td>
+                    <td>15.06.2022 18:05</td>
+                    <td>Acil Değil</td>
+                    <td>Açık</td>
+                </tr>
+                <tr>
+                    <td>nurefşan ayhan</td>
+                    <td>Yazılım Destek</td>
+                    <td>Yazılım Destek</td>
+                    <td>FATİH MOLLAİBRAHİMOĞLU</td>
+                    <td></td>
+                    <td></td>
+                    <td>15.06.2022 18:05</td>
+                    <td>Acil Değil</td>
+                    <td>Kapalı</td>
+                </tr>
+        </div>    
+    </main>
+</body>
+    <script src="script.js"></script>
+</html>

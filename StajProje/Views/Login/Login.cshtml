@@ -1,0 +1,45 @@
+﻿@model StajProje.Models.Entity.Users
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/1/Login/style.css">
+    <link rel="icon" href="~/kedi.ico" />
+    <title>Login</title>
+</head>
+<body>
+    <div id="logdiv">
+        <div id="imdiv">
+            <img id="img1" src="https://www.camlica.com.tr/wp-content/uploads/2013/12/camlica-logo-287x300.jpg" alt="Logo">
+        </div>
+        @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+        {
+            <form method="post">
+                <div>
+                    <p class="logp"></p>
+                    @Html.TextBoxFor(m => m.Username, new { @id = "Username", placeholder = "Kullanıcı Adı" })
+                </div>
+                <div>
+                    <p class="logp"></p>
+                    @Html.TextBoxFor(m => m.UserPassword, new { @id = "Password", placeholder = "Parola", type = "password" })
+                </div>
+                <button id="loginbut" type="submit">Giriş</button>
+            </form>
+        }
+        <div style="text-align: center; color: #ee671fec; font-size: 18px;">
+            @ViewBag.Mesaj
+        </div>
+    </div>
+    <div class="imdivi">
+        <div class="photo">
+            <img id="img2" src="~/1/Login/assets/ucankedi.ico" alt="Kus">
+        </div>
+    </div>
+</body>
+</html>

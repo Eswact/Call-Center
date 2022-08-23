@@ -1,0 +1,116 @@
+﻿@model StajProje.Models.Entity.Jobs
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/newLayout.cshtml";
+}
+<main>
+    <div>
+        <nav>
+            <div class="flex1">
+                <div>
+                    <span id="sf"><i class="fa-solid fa-paperclip"></i> Servis Fişi </span>
+                </div>
+                <ol id="nv" class="flex">
+                    <li>
+                        <button id="cagri" class="sec"><i class="fa-solid fa-phone"></i> Çağrılar</button>
+                    </li>
+                    <li>
+                        <button class="sec2"><i class="fa-solid fa-eye"></i></button>
+                    </li>
+                    <li>
+                        <button class="sec3"><i class="fa-solid fa-xmark"></i> Sil</button>
+                    </li>
+                    <li>
+                        <button class="sec4"><i class="fa-solid fa-circle-plus"></i> Yeni Ekle</button>
+                    </li>
+                    <li>
+                        <button class="sec3"><i class="fa-solid fa-circle-left"></i> Geri</button>
+                    </li>
+                </ol>
+            </div>
+        </nav>
+        <form id="formbar" action="/Default/Index" method="post">
+            <div id="frm1">
+                <div id="fofl">
+                    <div>
+                        <span> <a class="plus" href="#"><i class="fa-solid fa-plus"></i> Çağrı :</a>  <input id="cari" type="text" placeholder="Başlık" name="Cari" maxlength="30" required> </span>
+                    </div>
+                    <div>
+                        <span>
+                            Ekleyen :
+                            @Html.DropDownListFor(m => m.CariAdres, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-drop dropdown4" })
+                        </span>
+                    </div>
+                    <div id="butflex">
+                        <button class="yeniadres"><i class="fa-solid fa-plus"></i> Yeni Personel </button>
+                        <button id="adresduzen"><i class="fa-solid fa-pen-to-square"></i> Personel Düzenle</button>
+                    </div>
+                </div>
+            </div>
+            <div class="flexc">
+                <div id="drop4div">
+                    <span>
+                        Çağrılar :
+                        @Html.DropDownListFor(m => m.Musteri, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-drop dropdown4" })
+                    </span>
+                </div>
+                <div class="flexc">
+                    <span class="sml">
+                        Gruplar :
+                        <input class="form2" type="text" placeholder="Gruplar" name="Gruplar" maxlength="30" required>
+                    </span>
+                </div>
+                <div>
+                    <div class="flexc">
+                        <span class="smr">
+                            Teknisyenler :
+                            <input class="form2" type="text" placeholder="Teknisyenler" name="Teknisyenler" maxlength="30" required>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="flexc">
+                <div class="flex">
+                    <p class="formp">Kayıt tarihi : </p>
+                    <input class="form3" type="text" placeholder="GG/AA/YYYY" name="KTarih" onfocus="(this.type='date')" maxlength="30" required>
+                </div>
+                <div class="flex">
+                    <p class="formp">Servis Form No : </p>
+                    <input class="form2" type="text" maxlength="30">
+                </div>
+                <div class="radio">
+                    <label class="container">
+                        Acil
+                        <input type="radio" name="Acil" value="True">
+                    </label>
+                    <label class="container">
+                        Acil Değil
+                        <input type="radio" checked="checked" name="Acil" value="False">
+                    </label>
+                </div>
+                <div class="radio">
+                    <label class="container">
+                        Açık
+                        <input type="radio" checked="checked" name="Kapali" value="False">
+                    </label>
+                    <label class="container">
+                        Kapalı
+                        <input type="radio" name="Kapali" value="True">
+                    </label>
+                </div>
+                <button id="kaydet"><i class="fa-solid fa-floppy-disk"></i> Kaydet / Güncelle</button>
+            </div>
+        </form>
+        <div id="nav2">
+            <div class="dradius"><button id="but" class="buts" autofocus>Servis Notları</button></div>
+            <div class="dradius"><button id="but4" class="buts">Ekler</button></div>
+        </div>
+    </div>
+    <div id="yaz">
+        
+    </div>
+</main>
+<div class="wid">
+
+</div>
+<script src="~/1/Cagri-gonderme/script2.js"></script>

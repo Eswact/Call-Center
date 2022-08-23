@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StajProjeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Calls">
+    <Key>
+      <PropertyRef Name="CallID" />
+    </Key>
+    <Property Name="CallID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="CustomerName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CallNumber" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+    <Property Name="CustomerMail" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CallDesc" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="CallStatus" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Calls__UserID__38996AB5" FromRole="Calls" ToRole="Users" />
+    <NavigationProperty Name="Jobs" Relationship="Self.FK__Jobs__CallID__3C69FB99" FromRole="Calls" ToRole="Jobs" />
+  </EntityType>
+  <EntityType Name="Jobs">
+    <Key>
+      <PropertyRef Name="JobID" />
+    </Key>
+    <Property Name="JobID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CallID" Type="Int32" />
+    <Property Name="Cari" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CariAdres" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Gruplar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Teknisyenler" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Acil" Type="Boolean" Nullable="false" />
+    <Property Name="Kapali" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Calls" Relationship="Self.FK__Jobs__CallID__3C69FB99" FromRole="Jobs" ToRole="Calls" />
+    <Property Name="KTarih" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Musteri" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UserRole" Type="String" Nullable="false" MaxLength="1" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="Calls" Relationship="Self.FK__Calls__UserID__38996AB5" FromRole="Users" ToRole="Calls" />
+  </EntityType>
+  <Association Name="FK__Calls__UserID__38996AB5">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Calls" Type="Self.Calls" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Calls">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Jobs__CallID__3C69FB99">
+    <End Role="Calls" Type="Self.Calls" Multiplicity="0..1" />
+    <End Role="Jobs" Type="Self.Jobs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Calls">
+        <PropertyRef Name="CallID" />
+      </Principal>
+      <Dependent Role="Jobs">
+        <PropertyRef Name="CallID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StajProjeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Calls" EntityType="Self.Calls" />
+    <EntitySet Name="Jobs" EntityType="Self.Jobs" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="FK__Calls__UserID__38996AB5" Association="Self.FK__Calls__UserID__38996AB5">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Calls" EntitySet="Calls" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Jobs__CallID__3C69FB99" Association="Self.FK__Jobs__CallID__3C69FB99">
+      <End Role="Calls" EntitySet="Calls" />
+      <End Role="Jobs" EntitySet="Jobs" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="StajProjeModel.sysdiagrams" />
+  </EntityContainer>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>
