@@ -168,6 +168,7 @@
     <Content Include="1\Cagri-gonderme\index.html" />
     <Content Include="1\Cagri-gonderme\script2.js" />
     <Content Include="1\Cagri-gonderme\servis-notlari.html" />
+    <Content Include="1\Cagri-gonderme\styles.css" />
     <Content Include="1\Cagri-gonderme\styles2.css" />
     <Content Include="1\Login\style.css" />
     <Content Include="Content\bootstrap-theme.css" />

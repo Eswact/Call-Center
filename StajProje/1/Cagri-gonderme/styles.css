@@ -644,9 +644,9 @@ nav {
     animation: rotate-photo 1.1s forwards ease-in-out;
 }
 
-#img1:hover {
-    transform: rotate(360deg) translateZ(0);
-}
+    #img1:hover {
+        transform: rotate(360deg) translateZ(0);
+    }
 
 #hg {
     position: absolute;
